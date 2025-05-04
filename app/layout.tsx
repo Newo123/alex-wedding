@@ -12,6 +12,7 @@ const kurale = Montserrat({
 	weight: ['500', '600'],
 	display: 'swap',
 	variable: '--font-kurle',
+	subsets: ['cyrillic'],
 });
 
 export const metadata: Metadata = {
