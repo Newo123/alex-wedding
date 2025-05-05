@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import localFont from 'next/font/local';
+import { Toaster } from 'react-hot-toast';
 import './globals.css';
 
 const kudry = localFont({
@@ -29,6 +30,7 @@ export default function RootLayout({
 		<html lang='ru'>
 			<body className={`${kurale.variable} ${kudry.variable} antialiased`}>
 				{children}
+				<Toaster />
 			</body>
 		</html>
 	);

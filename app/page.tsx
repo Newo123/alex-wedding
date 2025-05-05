@@ -1,4 +1,5 @@
 import { Container } from '@/components/container';
+import { Form } from '@/components/form';
 import { Text } from '@/components/text';
 import { Title } from '@/components/title';
 import cn from 'clsx';
@@ -148,10 +149,11 @@ export default function Page() {
 								>
 									{item === '18' && (
 										<Image
-											className='w-[28px] h-[25px] object-center object-contain'
+											className='absolute top-[43%] left-1/2 -translate-1/2 w-[28px] h-[25px] object-center object-cover'
 											src='/heart-calendar.png'
 											alt='heart'
-											fill
+											width={28}
+											height={25}
 										/>
 									)}
 									{item}
@@ -161,7 +163,7 @@ export default function Page() {
 					</div>
 				</Container>
 			</section>
-			<section className='mt-[30px]'>
+			<section className='mt-[30px] mb-[80px]'>
 				<Container>
 					<div className='pt-[16px] border-t-[2px] border-t-[#B54A4A]'>
 						<Title type='h2'>ЛОКАЦИЯ</Title>
@@ -182,7 +184,7 @@ export default function Page() {
 							<div key={index} className='flex items-center gap-[20px]'>
 								<div className='text-[12px] relative flex shrink-0 w-[48px] h-[42px] items-center justify-center'>
 									<Image
-										className='w-full h-full top-0 left-0 object-center object-contain absolute'
+										className='w-[110%] h-[110%] top-[52%] left-1/2 -translate-1/2 object-center object-contain absolute'
 										src='/heart-time.png'
 										alt='heart'
 										width={61}
@@ -191,7 +193,9 @@ export default function Page() {
 									{item.time}
 								</div>
 								<div>
-									<div className='uppercase text-[12px]'>{item.title}</div>
+									<div className='uppercase text-[12px] font-semibold'>
+										{item.title}
+									</div>
 									<Text className='text-left !text-[12px]'>{item.text}</Text>
 								</div>
 							</div>
@@ -210,6 +214,13 @@ export default function Page() {
 							Просим Вас подтвердить свое присутствие и заполнить анкету до
 							25.05.2025
 						</Text>
+						<Form />
+						<div className='flex flex-col items-center justify-center mt-[16px]'>
+							<div className='text-[12px] font-semibold text-center'>
+								с любовью
+							</div>
+							<Title type='h2'>Кристина и Алексей</Title>
+						</div>
 					</div>
 				</Container>
 			</section>
