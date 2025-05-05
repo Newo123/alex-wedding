@@ -21,14 +21,14 @@ export const action = async (data: IForm) => {
 	// Настройки письма
 	const mailOptions = {
 		from: process.env.EMAIL_USER,
-		to: 'sverep529@mail.ru',
+		to: process.env.EMAIL_TO,
 		subject: 'Новая анкета из свадебного приглашения',
 		html: html,
 	};
 
 	try {
 		await transporter.sendMail(mailOptions);
-		console.log('Уведомление отправлено на email:', 'sverep529@mail.ru');
+		console.log('Уведомление отправлено на email:', process.env.EMAIL_TO);
 		return true;
 	} catch (error) {
 		console.error('Ошибка при отправке уведомления:', error);
