@@ -16,6 +16,7 @@ export function Field({ register, formState, label, id }: IField) {
 				{label}
 			</label>
 			<input
+				disabled={formState.isSubmitting}
 				type='text'
 				id={id}
 				{...register(id, {

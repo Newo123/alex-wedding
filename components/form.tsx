@@ -2,6 +2,7 @@
 
 import { action } from '@/actions/action';
 import Image from 'next/image';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Field } from './field';
@@ -16,15 +17,18 @@ export function Form() {
 	const { register, handleSubmit, formState, reset } = useForm<IForm>({
 		mode: 'onChange',
 	});
-	const onSubmit = (data: IForm) => {
-		toast.promise(action(data), {
+	const onSubmit = async (data: IForm) => {
+		await toast.promise(action(data), {
 			loading: 'Отправляю...',
 			success: 'Ваша анкета отправлена!',
 			error: 'Возникла ошибка попробуйте позже!',
 		});
-
 		reset();
 	};
+
+	useEffect(() => {
+		console.log(formState.isSubmitting);
+	}, [formState.isSubmitting]);
 
 	return (
 		<form
@@ -50,7 +54,10 @@ export function Form() {
 				id='count'
 			/>
 
-			<button className='relative w-[93px] h-[83px] text-[#F5F5F5] text-[13px] flex items-center justify-center mx-auto mt-[23px]'>
+			<button
+				className='relative w-[93px] h-[83px] text-[#F5F5F5] text-[13px] flex items-center justify-center mx-auto mt-[23px]'
+				disabled={formState.isSubmitting}
+			>
 				<Image
 					src='/form-heart.svg'
 					alt='heart'
